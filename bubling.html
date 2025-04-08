@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubling</title>
+
+    <style>
+        body{
+            height: 100vh;
+            
+        }
+        .parent{
+            border: 1px solid rgb(140, 0, 255);
+            height: 120px;
+            width: 320px;
+            padding: 20px;
+            margin: auto;
+        }
+        .child{
+            border: 1px solid rgb(140, 0, 255);
+            height: 80%;
+            width: 100%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        Parent
+        <div class="child">
+            Child
+            <button type="button" class="btn">Click</button>
+        </div>
+    </div>
+
+
+    <script>
+    
+        document.querySelector(".btn").addEventListener( 'click',(a)=>{
+            alert("I am Button!");
+            a.stopPropagation();
+        });
+        document.querySelector(".child").addEventListener( 'click',(a)=>{
+            alert("I am Child!");
+            a.stopPropagation();
+        });
+
+        document.querySelector(".parent").addEventListener( 'click',(a)=>{
+            alert("I am Parent!");
+            a.stopPropagation();
+          
+        });
+       
+
+    </script>
+</body>
+</html>
